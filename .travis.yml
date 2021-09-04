@@ -5,24 +5,26 @@ services:
   - docker
 
 before-install:
-  - docker build -t raober/docker-prac -f Dockerfile.dev .
-  - docker-compose -f docker-compose-dev.yml up
-  - docker-compose -f docker-compose-dev.yml up --build
-  - docker-compose -f docker-compose-dev.yml down
+  - docker build -t raober/docker-prac -f Dockerfile .
+  # - docker-compose -f docker-compose-dev.yml up
+  # - docker-compose -f docker-compose-dev.yml up --build
+  # - docker-compose -f docker-compose-dev.yml down
 
 
 script:
-  - docker run -e CI=true raober/docker-prac npm run test
+  - docker run -e CI=true raober/docker-prac npm run test -- --coverage
 
 
 deploy:
+  access_key_id: $AWS_ACCES_KEY
+  secret_access_key:  $AWS_SECRET_KEY
   provider: elasticbeanstalk
   region: "us-west-2"
   app:  "dockerprac"
   env: "Dockerprac-env"
   bucket_name: "elasticbeanstalk-us-west-2-966184720247"
   bucket_path:  "dockerprac"
+  skip_cleanup: true
   on:
     branch: master
-  access_key_id: $AWS_ACCES_KEY
-  secret_access_key:  $AWS_SECRET_KEY
+  
