@@ -25,6 +25,4 @@ deploy:
   bucket_name: "elasticbeanstalk-us-west-2-966184720247"
   bucket_path:  "dockerprac"
   skip_cleanup: true
-  on:
-    branch: master
   
