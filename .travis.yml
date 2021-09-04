@@ -1,0 +1,13 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+
+before-install:
+  - docker build -t raober/docker-prac -f Dockerfile.dev .
+
+
+script:
+  - docker run -e CI=true raober/docker-prac npm run test -- --coverage
+
