@@ -26,7 +26,8 @@ deploy:
   bucket_path:  "dockerprac"
   skip_cleanup: true
   on:
-    branch:
+    branches:
       only:
         - main
+        - /v\d+\.\d+[a-z]/
   
