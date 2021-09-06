@@ -20,7 +20,7 @@ deploy:
   secret_access_key:  $AWS_SECRET_KEY
   provider: elasticbeanstalk
   region: "us-west-2"
-  app:  "Dockerprac"
+  app:  "docker-prac"
   env: "Dockerprac-env"
   bucket_name: "elasticbeanstalk-us-west-2-966184720247"
   bucket_path:  "dockerprac"
