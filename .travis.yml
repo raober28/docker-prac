@@ -26,6 +26,7 @@ deploy:
   bucket_path:  "dockerprac"
   skip_cleanup: true
   on:
+    repo:   raober28/docker-prac
     branches:
       only:
         - main
